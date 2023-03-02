@@ -26,9 +26,11 @@ def view_polling_unit(request):
         poll_array = []
         # poll = Announced_Pu_Results.objects.filter(polling_unit_uniqueid=id)
         poll = Polling_Unit.objects.filter(lga_id=id)
+        print(poll)
         if poll.exists():
             new_poll = Announced_Pu_Results.objects.filter(
                 polling_unit_uniqueid=poll[0].polling_unit_id)
+            print(new_poll)
             if new_poll.exists():
                 for poll in new_poll:
                     poll_array.append(poll)
